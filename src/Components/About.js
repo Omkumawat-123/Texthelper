@@ -1,31 +1,42 @@
-import React, {useState} from 'react'
+//import React, {useState} from 'react'
 
-export default function About() {
 
-    const [myStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    })
-    const [btntext, setBtnText] = useState("Enable Dark Mode")
+export default function About(props) {
+
+let myStyle = {
+    color: props.mode === 'dark'?'white':'#042743',
+    backgroundColor: props.mode ==='dark'?'#042743':'white'
+} 
+
+
+// {
     
-    const toggleStyle = ()=>{
-        if(myStyle.color === 'black'){
-            setMyStyle({ 
-                color: 'white',
-                backgroundColor: 'black',
-                border: '1px solid white'
+
+//     const [myStyle, setMyStyle] = useState({
+//         color: 'black',
+//         backgroundColor: 'white'
+//     })
+   // const [btntext, setBtnText] = useState("Enable Dark Mode")
+    
+    // const toggleStyle = ()=>{
+    //     if(myStyle.color === 'black'){
+    //         setMyStyle({ 
+    //             color: 'white',
+    //             backgroundColor: 'black',
+    //             border: '1px solid white'
                 
-            })
-            setBtnText("Enable Light Mode")
-        }
-        else{
-            setMyStyle({ 
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnText("Enable Dark Mode");
-        }
-    }
+    //         })
+    //         setBtnText("Enable Light Mode")
+    //     }
+    //     else{
+    //         setMyStyle({ 
+    //             color: 'black',
+    //             backgroundColor: 'white'
+    //         })
+    //         setBtnText("Enable Dark Mode");
+    //     }
+    // }
+
     
     return (
         <div className="container" style={myStyle}>
@@ -34,7 +45,7 @@ export default function About() {
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
                     <button className="accordion-button" type="button" style={myStyle} data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
+                        Analyze your text
                     </button>
                     </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -46,7 +57,7 @@ export default function About() {
                 <div className="accordion-item" style={myStyle}>
                     <h2 className="accordion-header" id="headingTwo">
                     <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
+                      Free to use
                     </button>
                     </h2>
                     <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -58,7 +69,7 @@ export default function About() {
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingThree">
                     <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Accordion Item #3
+                        Easy to browse 
                     </button>
                     </h2>
                     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -68,9 +79,9 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <div className="container my-3">
+            {/* <div className="container my-3">
                 <button onClick={toggleStyle} type="button" className="btn btn-primary">{btntext}</button>
-            </div>
+            </div> */}
         </div>
     )
 }
